@@ -1,0 +1,235 @@
+{
+  "dimensiones": {
+    "filas": 40034,
+    "columnas": 13
+  },
+  "target_dist": {
+    "Medium": 19374,
+    "High": 10336,
+    "Low": 10324
+  },
+  "correlaciones": {
+    "Age": {
+      "Age": 1.0,
+      "PlayTimeHours": 0.002462115072428869,
+      "SessionsPerWeek": 0.008777320196304655,
+      "AvgSessionDurationMinutes": -0.002268809790554712,
+      "PlayerLevel": 0.0013525896859643426,
+      "AchievementsUnlocked": -0.0011004060268742935
+    },
+    "PlayTimeHours": {
+      "Age": 0.002462115072428869,
+      "PlayTimeHours": 1.0,
+      "SessionsPerWeek": -0.003655251870991196,
+      "AvgSessionDurationMinutes": -0.0019250447896054469,
+      "PlayerLevel": -0.0051515198578438596,
+      "AchievementsUnlocked": 0.003913040687180502
+    },
+    "SessionsPerWeek": {
+      "Age": 0.008777320196304655,
+      "PlayTimeHours": -0.003655251870991196,
+      "SessionsPerWeek": 1.0,
+      "AvgSessionDurationMinutes": -0.0006198975927789662,
+      "PlayerLevel": 0.003257430187915914,
+      "AchievementsUnlocked": 0.0031868988049271116
+    },
+    "AvgSessionDurationMinutes": {
+      "Age": -0.002268809790554712,
+      "PlayTimeHours": -0.0019250447896054469,
+      "SessionsPerWeek": -0.0006198975927789662,
+      "AvgSessionDurationMinutes": 1.0,
+      "PlayerLevel": 0.001367623127572716,
+      "AchievementsUnlocked": -0.0022269548483127804
+    },
+    "PlayerLevel": {
+      "Age": 0.0013525896859643426,
+      "PlayTimeHours": -0.0051515198578438596,
+      "SessionsPerWeek": 0.003257430187915914,
+      "AvgSessionDurationMinutes": 0.001367623127572716,
+      "PlayerLevel": 1.0,
+      "AchievementsUnlocked": 0.0063425026292066675
+    },
+    "AchievementsUnlocked": {
+      "Age": -0.0011004060268742935,
+      "PlayTimeHours": 0.003913040687180502,
+      "SessionsPerWeek": 0.0031868988049271116,
+      "AvgSessionDurationMinutes": -0.0022269548483127804,
+      "PlayerLevel": 0.0063425026292066675,
+      "AchievementsUnlocked": 1.0
+    }
+  },
+  "preprocessing": {
+    "n_features": 17,
+    "feature_names": [
+      "Age",
+      "PlayTimeHours",
+      "InGamePurchases",
+      "SessionsPerWeek",
+      "AvgSessionDurationMinutes",
+      "PlayerLevel",
+      "AchievementsUnlocked",
+      "Gender_Male",
+      "Location_Europe",
+      "Location_Other",
+      "Location_USA",
+      "GameGenre_RPG",
+      "GameGenre_Simulation",
+      "GameGenre_Sports",
+      "GameGenre_Strategy",
+      "GameDifficulty_Hard",
+      "GameDifficulty_Medium"
+    ],
+    "train_size": 32027,
+    "test_size": 8007,
+    "target_map": {
+      "Low": 0,
+      "Medium": 1,
+      "High": 2
+    }
+  },
+  "clustering": {
+    "k_optimo": 3,
+    "silhouette_score": 0.19599921222964453,
+    "perfiles": {
+      "PlayTimeHours": {
+        "0": 12.013947590592931,
+        "1": 12.076098514411207,
+        "2": 11.940693811107595
+      },
+      "SessionsPerWeek": {
+        "0": 14.524391015501424,
+        "1": 4.509389671361502,
+        "2": 9.53077975376197
+      },
+      "AvgSessionDurationMinutes": {
+        "0": 94.74754824422651,
+        "1": 94.98443291326909,
+        "2": 94.4932222360403
+      },
+      "InGamePurchases": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 1.0
+      },
+      "AchievementsUnlocked": {
+        "0": 24.538120847832964,
+        "1": 24.51371386212009,
+        "2": 24.52928740206442
+      },
+      "Count": {
+        "0": 15805,
+        "1": 16188,
+        "2": 8041
+      }
+    },
+    "interpretacion": {
+      "0": "Achiever",
+      "1": "Achiever",
+      "2": "Casual"
+    }
+  },
+  "random_forest": {
+    "accuracy": 0.9115773698014238,
+    "classification_report": {
+      "Low": {
+        "precision": 0.9162039374053509,
+        "recall": 0.8789346246973365,
+        "f1-score": 0.8971824023727137,
+        "support": 2065.0
+      },
+      "Medium": {
+        "precision": 0.9004392386530015,
+        "recall": 0.952258064516129,
+        "f1-score": 0.9256239809356579,
+        "support": 3875.0
+      },
+      "High": {
+        "precision": 0.9304979253112033,
+        "recall": 0.8679245283018868,
+        "f1-score": 0.8981226533166458,
+        "support": 2067.0
+      },
+      "accuracy": 0.9115773698014238,
+      "macro avg": {
+        "precision": 0.9157137004565185,
+        "recall": 0.8997057391717842,
+        "f1-score": 0.9069763455416725,
+        "support": 8007.0
+      },
+      "weighted avg": {
+        "precision": 0.912264567521005,
+        "recall": 0.9115773698014238,
+        "f1-score": 0.911189473139857,
+        "support": 8007.0
+      }
+    },
+    "feature_importance": {
+      "feature": {
+        "3": "SessionsPerWeek",
+        "4": "AvgSessionDurationMinutes",
+        "1": "PlayTimeHours",
+        "5": "PlayerLevel",
+        "6": "AchievementsUnlocked",
+        "0": "Age",
+        "7": "Gender_Male",
+        "16": "GameDifficulty_Medium",
+        "10": "Location_USA",
+        "2": "InGamePurchases"
+      },
+      "importance": {
+        "3": 0.41777897237247325,
+        "4": 0.28741580973926745,
+        "1": 0.06092585456314875,
+        "5": 0.058899104156183296,
+        "6": 0.053693752824174525,
+        "0": 0.046111494591429436,
+        "7": 0.009274476279348487,
+        "16": 0.007760398586788666,
+        "10": 0.007652147932293032,
+        "2": 0.007324589031392198
+      }
+    }
+  },
+  "mlp": {
+    "accuracy": 0.9180716872736355,
+    "epochs_trained": 74,
+    "classification_report": {
+      "Low": {
+        "precision": 0.9153046062407132,
+        "recall": 0.8949152542372881,
+        "f1-score": 0.9049951028403526,
+        "support": 2065.0
+      },
+      "Medium": {
+        "precision": 0.9201712415008814,
+        "recall": 0.9429677419354838,
+        "f1-score": 0.9314300280397655,
+        "support": 3875.0
+      },
+      "High": {
+        "precision": 0.9167079821517105,
+        "recall": 0.8945331398161587,
+        "f1-score": 0.905484818805093,
+        "support": 2067.0
+      },
+      "accuracy": 0.9180716872736355,
+      "macro avg": {
+        "precision": 0.9173946099644349,
+        "recall": 0.9108053786629768,
+        "f1-score": 0.9139699832284037,
+        "support": 8007.0
+      },
+      "weighted avg": {
+        "precision": 0.9180221021369519,
+        "recall": 0.9180716872736355,
+        "f1-score": 0.9179147454089605,
+        "support": 8007.0
+      }
+    },
+    "ejemplo_prediccion": {
+      "Low": 0.035020485520362854,
+      "Medium": 0.8086233139038086,
+      "High": 0.15635623037815094
+    }
+  }
+}
